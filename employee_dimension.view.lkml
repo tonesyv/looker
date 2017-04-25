@@ -50,11 +50,14 @@ view: employee_dimension {
     type: string
     sql: ${TABLE}.employee_region ;;
   }
-
   dimension: employee_state {
     type: string
-    sql: ${TABLE}.employee_state ;;
-  }
+    sql:${TABLE}.employee.state  ;;
+    drill_fields: [employee_city]
+    map_layer_name: us_states  ## Map layers allow plotting on zoomable map, us_states and others are built in
+  }                            ## but you can add custom topo JSON maps as well -- see discourse.looker.com
+
+
 
   dimension: employee_street_address {
     type: string
