@@ -79,7 +79,11 @@ explore: store_sales_fact {
 }
 
 explore: store_dimension {
-  hidden: yes
+ join: store_sales_fact {
+   type: left_outer
+  sql_on: ${store_sales_fact.store_key} = ${store_dimension.store_key} ;;
+  relationship: many_to_one
+  }
 }
 
 explore: customer_dimension {
