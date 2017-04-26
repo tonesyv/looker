@@ -115,12 +115,9 @@ view: store_dimension {
 
   measure: count {
     type: count
-    drill_fields: [store_state]
+    drill_fields: [store_name]
   }
 
-  measure: count_storse_divides_by_states {
-    type: count
-  }
 
 
 }
