@@ -118,8 +118,8 @@ view: store_dimension {
     drill_fields: [store_state]
   }
 
-  measure: count_states {
-    type: count_distinct
+  measure: count_storse_divides_by_states {
+    type: count
   }
 
 
