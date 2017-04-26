@@ -56,11 +56,26 @@ explore: store_sales_fact {
 
   }
 
+  join: inventory_fact {
+    type: left_outer
+    sql_on: ${store_orders_fact.product_key} = ${inventory_fact.product_key};;
+    relationship: many_to_one
+
+  }
+
+  join: warehouse_dimension{
+    type: left_outer
+    sql_on: ${inventory_fact.warehouse_key} = ${warehouse_dimension.warehouse_key};;
+    relationship: many_to_one
+
+  }
+
   join: store_orders_fact  {
     type: left_outer
     sql_on: ${store_sales_fact.product_key} = ${store_orders_fact.product_key};;
     relationship: many_to_one
 
   }
+
 
 }
