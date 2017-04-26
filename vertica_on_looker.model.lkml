@@ -76,6 +76,15 @@ explore: store_sales_fact {
     relationship: many_to_one
 
   }
+}
 
+explore: store_dimension {
+  hidden: yes
+}
 
+explore: customer_dimension {
+  hidden: yes
+}
+explore: employee_dimension {
+  hidden: yes
 }
