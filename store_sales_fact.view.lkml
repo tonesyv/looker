@@ -99,5 +99,11 @@ view: store_sales_fact {
       drill_fields: [store_key, product_key, product_version, total_sales_amount]
   }
 
+  measure:  total_cost_amount {
+    type: sum
+    sql: ${cost_dollar_amount};;
+    value_format_name: usd
+    drill_fields: [store_key, product_key, product_version, total_sales_amount]
+  }
 
 }
