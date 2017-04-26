@@ -115,11 +115,11 @@ view: store_dimension {
 
   measure: count {
     type: count
-    drill_fields: []
+    drill_fields: [store_state, store_city, store_name, store_key]
   }
 
   measure: count_by_state {
-    type: count_distinct
+    type: count
 
 
   }
