@@ -19,6 +19,7 @@ view: customer_dimension {
   dimension: customer_city {
     type: string
     sql: ${TABLE}.customer_city ;;
+    drill_fields: [customer_address]
   }
 
   dimension: customer_gender {
@@ -39,6 +40,7 @@ view: customer_dimension {
   dimension: customer_region {
     type: string
     sql: ${TABLE}.customer_region ;;
+    drill_fields: [customer_city, customer_state]
   }
 
   dimension_group: customer_since {
@@ -58,6 +60,8 @@ view: customer_dimension {
   dimension: customer_state {
     type: string
     sql: ${TABLE}.customer_state ;;
+    drill_fields: [customer_city, customer_address]
+    map_layer_name: us_states
   }
 
   dimension: customer_type {

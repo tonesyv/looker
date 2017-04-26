@@ -54,4 +54,6 @@ view: vendor_dimension {
     type: count
     drill_fields: [vendor_name]
   }
+
+
 }

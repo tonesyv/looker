@@ -136,4 +136,10 @@ view: store_orders_fact {
     type: count
     drill_fields: [shipper_name]
   }
+
+  measure:  total_shipping_cost {
+    type: sum
+    sql: ${shipping_cost};;
+    value_format_name: usd
+  }
 }

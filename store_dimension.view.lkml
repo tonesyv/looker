@@ -77,6 +77,7 @@ view: store_dimension {
   dimension: store_city {
     type: string
     sql: ${TABLE}.store_city ;;
+    drill_fields: [store_name, store_address]
   }
 
   dimension: store_key {
@@ -97,11 +98,14 @@ view: store_dimension {
   dimension: store_region {
     type: string
     sql: ${TABLE}.store_region ;;
+    drill_fields: [store_state, store_city]
   }
 
   dimension: store_state {
     type: string
     sql: ${TABLE}.store_state ;;
+    drill_fields: [store_city, store_address]
+    map_layer_name: us_states
   }
 
   dimension: total_square_footage {

@@ -19,6 +19,7 @@ view: employee_dimension {
   dimension: employee_city {
     type: string
     sql: ${TABLE}.employee_city ;;
+
   }
 
   dimension: employee_first_name {
@@ -41,19 +42,27 @@ view: employee_dimension {
     sql: ${TABLE}.employee_last_name ;;
   }
 
+
   dimension: employee_middle_initial {
     type: string
     sql: ${TABLE}.employee_middle_initial ;;
   }
 
+  dimension: name {
+    sql: CONCAT(${TABLE}.employee_first_name,' ', ${TABLE}.employee_last_name) ;;
+  }
+
   dimension: employee_region {
     type: string
     sql: ${TABLE}.employee_region ;;
+    drill_fields: [employee_state, employee_city]
   }
 
   dimension: employee_state {
     type: string
     sql: ${TABLE}.employee_state ;;
+    drill_fields: [employee_city, employee_street_address]
+    map_layer_name: us_states
   }
 
   dimension: employee_street_address {
