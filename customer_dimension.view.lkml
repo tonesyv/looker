@@ -132,4 +132,8 @@ view: customer_dimension {
     type: count
     drill_fields: [customer_name]
   }
+
+
+
+
 }
