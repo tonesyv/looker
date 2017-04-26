@@ -119,7 +119,7 @@ view: store_dimension {
   }
 
   measure: count_by_state {
-    type: count
+    type: count_distinct
 
 
   }
