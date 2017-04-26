@@ -76,41 +76,8 @@ view: store_sales_fact {
     sql: ${TABLE}.transaction_type ;;
   }
 
-  measure: count_sales {
+  measure: count {
     type: count
-    drill_fields: [sales_dollar_amount]
+    drill_fields: []
   }
-
-  measure: count_sales_quantity {
-    type: count
-    drill_fields: [sales_quantity]
-  }
-
-  measure: count_cost {
-    type: count
-    drill_fields: [cost_dollar_amount]
-  }
-
-
-  measure:  total_sales_amount {
-      type: sum
-      sql: ${sales_dollar_amount};;
-      value_format_name: usd
-      drill_fields: [store_key, product_key, product_version, total_sales_amount]
-  }
-
-  measure:  total_cost_amount {
-    type: sum
-    sql: ${cost_dollar_amount};;
-    value_format_name: usd
-    drill_fields: [store_key, product_key, product_version, total_sales_amount]
-  }
-
-  measure: profit {
-    type: sum
-    sql: ${gross_profit_dollar_amount};;
-    value_format_name: usd
-    drill_fields: [store_key, product_key, product_version, total_sales_amount]
-  }
-
 }

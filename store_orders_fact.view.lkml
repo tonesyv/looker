@@ -136,6 +136,4 @@ view: store_orders_fact {
     type: count
     drill_fields: [shipper_name]
   }
-
-
 }

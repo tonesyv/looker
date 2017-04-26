@@ -18,27 +18,6 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #   }
 # }
 
-explore: store_dimension {
-  join: store_sales_fact {
-    type: left_outer
-    sql_on: ${store_dimension.store_key} = ${store_sales_fact.store_key} ;;
-    relationship: many_to_one
-   }
-  }
-
-  explore: customer_dimension {
-    join:store_sales_fact {
-      type: left_outer
-      sql_on: ${store_sales_fact.customer_key} = ${customer_dimension.customer_key} ;;
-      relationship: many_to_one
-    }
-
-    join:store_dimension {
-      type: left_outer
-      sql_on: sql_on: ${store_dimension.store_key} = ${store_sales_fact.store_key} ;;
-      relationship: many_to_one
-    }
-  }
 
 explore: store_sales_fact {
   join: store_dimension {
@@ -46,7 +25,42 @@ explore: store_sales_fact {
     sql_on: ${store_sales_fact.store_key} = ${store_dimension.store_key} ;;
     relationship: many_to_one
   }
+
+  join:customer_dimension {
+    type: left_outer
+    sql_on: ${store_sales_fact.customer_key} = ${customer_dimension.customer_key} ;;
+    relationship: many_to_one
+  }
+  join:employee_dimension {
+    type: left_outer
+    sql_on: ${store_sales_fact.employee_key} = ${employee_dimension.employee_key} ;;
+    relationship: many_to_one
+  }
+  join:product_dimension {
+    type: left_outer
+    sql_on: ${store_sales_fact.product_key} = ${product_dimension.product_key} ;;
+    relationship: many_to_one
+  }
+
+  join: date_dimension  {
+    type: left_outer
+    sql_on: ${store_sales_fact.date_key} =${date_dimension.date_key} ;;
+    relationship: many_to_one
+
+  }
+
+  join: vendor_dimension {
+    type: left_outer
+    sql_on: ${store_orders_fact.vendor_key} = ${vendor_dimension.vendor_key};;
+    relationship: many_to_one
+
+  }
+
+  join: store_orders_fact  {
+    type: left_outer
+    sql_on: ${store_sales_fact.product_key} = ${store_orders_fact.product_key};;
+    relationship: many_to_one
+
+  }
+
 }
-
-
-explore:  total_sale_state {}

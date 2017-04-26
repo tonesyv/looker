@@ -102,8 +102,6 @@ view: store_dimension {
   dimension: store_state {
     type: string
     sql: ${TABLE}.store_state ;;
-    drill_fields: [store_city]
-    map_layer_name: us_states
   }
 
   dimension: total_square_footage {
@@ -113,6 +111,6 @@ view: store_dimension {
 
   measure: count {
     type: count
-    drill_fields: [store_key,store_name,store_state]
+    drill_fields: [store_name]
   }
 }

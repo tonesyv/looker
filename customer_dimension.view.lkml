@@ -58,8 +58,6 @@ view: customer_dimension {
   dimension: customer_state {
     type: string
     sql: ${TABLE}.customer_state ;;
-    drill_fields: [customer_city]
-    map_layer_name: us_states
   }
 
   dimension: customer_type {
