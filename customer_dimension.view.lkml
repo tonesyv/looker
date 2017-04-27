@@ -14,6 +14,7 @@ view: customer_dimension {
   dimension: customer_age {
     type: number
     sql: ${TABLE}.customer_age ;;
+    drill_fields: [,customer_city, customer_state]
   }
 
   dimension: customer_city {
@@ -25,6 +26,7 @@ view: customer_dimension {
   dimension: customer_gender {
     type: string
     sql: ${TABLE}.customer_gender ;;
+    drill_fields: [customer_name, customer_state]
   }
 
   dimension: customer_key {
@@ -40,7 +42,7 @@ view: customer_dimension {
   dimension: customer_region {
     type: string
     sql: ${TABLE}.customer_region ;;
-    drill_fields: [customer_city, customer_state]
+    drill_fields: [customer_city, customer_state, customer_since_year]
   }
 
   dimension_group: customer_since {
@@ -130,7 +132,7 @@ view: customer_dimension {
 
   measure: count {
     type: count
-    drill_fields: [customer_name]
+    drill_fields: [customer_name, customer_state]
   }
 
 
