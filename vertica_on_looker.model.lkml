@@ -87,7 +87,16 @@ explore: store_dimension {
 }
 
 explore: customer_dimension {
-  hidden: yes
+  join: store_sales_fact {
+    type: left_outer
+    sql_on: ${store_sales_fact.customer_key} = ${customer_dimension.customer_key} ;;
+    relationship: many_to_one
+ }
+  join: store_dimension {
+    type: left_outer
+    sql_on: ${store_dimension.store_key} = ${store_sales_fact.store_key}  ;;
+    relationship: many_to_one
+  }
 }
 explore: employee_dimension {
   hidden: yes
