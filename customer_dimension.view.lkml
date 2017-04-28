@@ -131,6 +131,13 @@ view: customer_dimension {
     sql: ${TABLE}.title ;;
   }
 
+  dimension: customer_age_tier {
+    type: tier
+    tiers: [0,10, 20, 30, 40,50,60, 70, 80, 90, 100]
+    style: classic # the default value, could be excluded
+    sql: ${customer_age} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [customer_name, customer_state]
