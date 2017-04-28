@@ -33,6 +33,7 @@ view: employee_dimension {
   }
 
   dimension: employee_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.employee_key ;;
   }

@@ -12,6 +12,7 @@ view: warehouse_dimension {
   }
 
   dimension: warehouse_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.warehouse_key ;;
   }

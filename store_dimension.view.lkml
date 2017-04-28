@@ -81,6 +81,7 @@ view: store_dimension {
   }
 
   dimension: store_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.store_key ;;
   }

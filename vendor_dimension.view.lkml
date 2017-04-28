@@ -31,6 +31,7 @@ view: vendor_dimension {
   }
 
   dimension: vendor_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.vendor_key ;;
   }

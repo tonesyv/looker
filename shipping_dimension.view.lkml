@@ -17,6 +17,7 @@ view: shipping_dimension {
   }
 
   dimension: shipping_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.shipping_key ;;
   }

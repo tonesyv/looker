@@ -65,6 +65,7 @@ view: promotion_dimension {
   }
 
   dimension: promotion_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.promotion_key ;;
   }

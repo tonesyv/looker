@@ -56,6 +56,7 @@ view: date_dimension {
   }
 
   dimension: date_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.date_key ;;
   }

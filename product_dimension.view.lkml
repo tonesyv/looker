@@ -62,6 +62,7 @@ view: product_dimension {
   }
 
   dimension: product_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.product_key ;;
   }
