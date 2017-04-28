@@ -142,4 +142,6 @@ view: store_orders_fact {
     sql: ${shipping_cost};;
     value_format_name: usd
   }
+
+
 }

@@ -119,6 +119,13 @@ view: store_dimension {
     drill_fields: [store_name]
   }
 
+  measure: average_square_footage {
+    type: average
+    sql: ${total_square_footage} ;;
+    value_format_name: decimal_1
+  }
+
+
 
 
 }
