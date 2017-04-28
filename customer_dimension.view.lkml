@@ -140,9 +140,9 @@ view: customer_dimension {
 
   dimension: customer_annual_income_tier {
     type: tier
-    tiers: [1000,10000, 20000, 30000, 40000,50000,60000, 70000, 80000, 90000, 100000]
+    tiers: [10000, 50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000 ]
     style: relational # the default value, could be excluded
-    sql: ${customer_age} ;;
+    sql: ${annual_income} ;;
   }
 
   measure: count {
