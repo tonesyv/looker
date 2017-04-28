@@ -113,7 +113,7 @@ view: employee_dimension {
   dimension: employee_age_tier {
     type: tier
     tiers: [0,18, 25, 35, 45,55,65]
-    style: classic # the default value, could be excluded
+
     sql: ${employee_age} ;;
   }
 
