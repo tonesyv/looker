@@ -4,6 +4,7 @@ view: date_dimension {
   dimension: calendar_half_year {
     type: number
     sql: ${TABLE}.calendar_half_year ;;
+    drill_fields: [calendar_year_quarter]
   }
 
   dimension: calendar_month_name {
@@ -19,6 +20,7 @@ view: date_dimension {
   dimension: calendar_quarter {
     type: number
     sql: ${TABLE}.calendar_quarter ;;
+    drill_fields: [calendar_year_month]
   }
 
   dimension: calendar_week_number_in_year {
@@ -29,16 +31,19 @@ view: date_dimension {
   dimension: calendar_year {
     type: number
     sql: ${TABLE}.calendar_year ;;
+    drill_fields: [calendar_half_year, calendar_quarter]
   }
 
   dimension: calendar_year_month {
     type: string
     sql: ${TABLE}.calendar_year_month ;;
+    drill_fields: [calendar_week_number_in_year]
   }
 
   dimension: calendar_year_quarter {
     type: string
     sql: ${TABLE}.calendar_year_quarter ;;
+    drill_fields: [calendar_year_month]
   }
 
   dimension_group: date {
