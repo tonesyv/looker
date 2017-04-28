@@ -110,8 +110,17 @@ view: employee_dimension {
     sql: ${TABLE}.vacation_days ;;
   }
 
+  dimension: age_tier {
+    type: tier
+    tiers: [0,18, 25, 35, 45,55,65]
+    style: classic # the default value, could be excluded
+    sql: ${employee_age} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [employee_last_name, employee_first_name]
   }
+
+
 }
