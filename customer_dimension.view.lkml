@@ -138,6 +138,13 @@ view: customer_dimension {
     sql: ${customer_age} ;;
   }
 
+  dimension: customer_annual_income_tier {
+    type: tier
+    tiers: [10000,100000, 200000, 300000, 400000,500000,600000, 700000, 800000, 900000, 1000000]
+    style: relational # the default value, could be excluded
+    sql: ${customer_age} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [customer_name, customer_state]
