@@ -4,7 +4,7 @@ view: inventory_fact {
   dimension: compound_primary_key {
     primary_key: yes
     hidden: yes
-    sql: CONCAT(${TABLE}.date_key, '  ', ${TABLE}.product_key) ;;
+    sql: (${TABLE}.date_key || '-' ||  ${TABLE}.product_key) ;;
   }
 
   dimension: date_key {
