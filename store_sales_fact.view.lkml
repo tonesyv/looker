@@ -101,5 +101,11 @@ view: store_sales_fact {
     drill_fields: [store_key, product_key, product_version, total_sales_amount]
   }
 
+  measure:  total_sales_amount_pr_item {
+    type: sum
+    sql: ${sales_dollar_amount} + ${product_dimension.product_price};;
+    value_format_name: usd
+    drill_fields: [store_key, product_key, product_version, total_sales_amount]
+  }
 
 }
