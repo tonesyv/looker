@@ -61,10 +61,10 @@ view: product_dimension {
     sql: ${TABLE}.product_description ;;
   }
 
-  dimension: product_key {
+  dimension: compound_primary_key {
     primary_key: yes
-    type: number
-    sql: ${TABLE}.product_key ;;
+    hidden: yes
+    sql: CONCAT(${TABLE}.product_key, '  ', ${TABLE}.product_version) ;;
   }
 
   dimension: product_price {
@@ -75,6 +75,11 @@ view: product_dimension {
   dimension: product_version {
     type: number
     sql: ${TABLE}.product_version ;;
+  }
+
+  dimension: product_key {
+    type: number
+    sql: ${TABLE}.product_key ;;
   }
 
   dimension: shelf_depth {
