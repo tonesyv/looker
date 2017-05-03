@@ -38,7 +38,7 @@ explore: store_sales_fact {
   }
   join:product_dimension {
     type: left_outer
-    sql_on: ${store_sales_fact.product_key} = ${product_dimension.product_key} ;;
+    sql_on: ${store_sales_fact.newproduct_key} = ${product_dimension.primary_key} ;;
     relationship: many_to_one
   }
 
