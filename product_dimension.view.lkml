@@ -62,18 +62,24 @@ view: product_dimension {
     drill_fields: [product_key, product_version]
   }
 
- # dimension: compound_primary_key {
-   # primary_key: yes
- #   hidden: yes
-  #  sql: (${TABLE}.product_key || '-' ||  ${TABLE}.product_version) ;;
-#  }
-
-  dimension: compound_primary_key {
+  dimension: primary_key {
     primary_key: yes
-    hidden: yes
-    type:  number #will this help?
-    sql: CONCAT(${TABLE}.product_key, ' ' , ${TABLE}.product_version) ;;
+    sql: CONCAT(${TABLE}..product_key, ${TABLE}.product_version) ;;
   }
+
+
+ #  dimension: compound_primary_key {
+ #   primary_key: yes
+ #   hidden: yes
+ #   sql: (${TABLE}.product_key || '-' ||  ${TABLE}.product_version) ;;
+ #  }
+
+ # dimension: compound_primary_key {
+ #   primary_key: yes
+ #   hidden: yes
+ #  type:  number #will this help?
+ #   sql: CONCAT(${TABLE}.product_key, ' ' , ${TABLE}.product_version) ;;
+ # }
 
   dimension: product_price {
     type: number
