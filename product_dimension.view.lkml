@@ -71,7 +71,8 @@ view: product_dimension {
   dimension: compound_primary_key {
     primary_key: yes
     hidden: yes
-    sql: CONCAT(${TABLE}.product_key, '  ', ${TABLE}.product_version) ;;
+    type:  number #will this help?
+    sql: CONCAT(${TABLE}.product_key, ' ' , ${TABLE}.product_version) ;;
   }
 
   dimension: product_price {
