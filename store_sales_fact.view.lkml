@@ -105,9 +105,10 @@ view: store_sales_fact {
  #what am I doing here?
   measure:  sales_pr_item {
     type: sum
-    sql: (${sales_quantity} * ${product_dimension.product_price}) - ${cost_dollar_amount};;
+    sql: ${sales_quantity} * ${product_dimension.product_price};;
     value_format_name: usd
-    drill_fields: [store_key, product_key, product_version, total_sales_amount]
+    drill_fields: [product_dimension.product_description, sales_quantity, total_sales_amount, product_dimension.product_price]
   }
+
 
 }

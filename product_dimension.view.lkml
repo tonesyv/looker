@@ -59,6 +59,7 @@ view: product_dimension {
   dimension: product_description {
     type: string
     sql: ${TABLE}.product_description ;;
+    drill_fields: [product_key, product_version]
   }
 
   dimension: compound_primary_key {
