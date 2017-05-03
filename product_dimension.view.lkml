@@ -64,6 +64,7 @@ view: product_dimension {
 
   dimension: primary_key {
     primary_key: yes
+    type:  number
     sql: CONCAT(${TABLE}..product_key, ${TABLE}.product_version) ;;
   }
 

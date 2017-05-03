@@ -36,6 +36,10 @@ view: store_sales_fact {
     sql: ${TABLE}.product_key ;;
   }
 
+  dimension: Newproduct_key {
+    type: number
+    sql: CONCAT(${TABLE}..product_key, ${TABLE}.product_version) ;;
+  }
   dimension: product_version {
     type: number
     sql: ${TABLE}.product_version ;;
