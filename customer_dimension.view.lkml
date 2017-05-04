@@ -33,6 +33,7 @@ view: customer_dimension {
     primary_key: yes
     type: number
     sql: ${TABLE}.customer_key ;;
+    drill_fields: [customer_type]
   }
 
   dimension: customer_name {

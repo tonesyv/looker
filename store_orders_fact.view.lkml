@@ -75,6 +75,7 @@ view: store_orders_fact {
   dimension: product_key {
     type: number
     sql: ${TABLE}.product_key ;;
+    drill_fields: [product.product_description]
   }
 
   dimension: product_version {
@@ -95,6 +96,7 @@ view: store_orders_fact {
   dimension: quantity_ordered {
     type: number
     sql: ${TABLE}.quantity_ordered ;;
+    drill_fields: [customer.customer_key, customer.customer_type]
   }
 
   dimension: reorder_level {
@@ -143,5 +145,9 @@ view: store_orders_fact {
     value_format_name: usd
   }
 
+  measure: liftetime_orders {
+    type: count_distinct
+    sql: ${quantity_ordered} ;;
 
+  }
 }
