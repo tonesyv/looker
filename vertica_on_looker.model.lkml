@@ -84,7 +84,7 @@ explore: store_sales_fact {
       ${store_sales_fact.employee_key} = ${store_orders_fact.employee_key}
 
     ;;
-    relationship: one_to_one
+    relationship: many_to_one
 
   }
 }
