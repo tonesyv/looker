@@ -149,7 +149,7 @@ view: store_orders_fact {
   measure: liftetime_orders {
     type: count_distinct
     sql: ${quantity_ordered} ;;
-    drill_fields: [customer_dimension.customer_key]
+    drill_fields: [date_ordered_date]
 
   }
   measure: reorders {
