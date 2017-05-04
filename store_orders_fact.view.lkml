@@ -137,7 +137,7 @@ view: store_orders_fact {
 
   measure: count {
     type: count
-    drill_fields: [customer.customer_key]
+    drill_fields: []
   }
 
   measure:  total_shipping_cost {
@@ -149,11 +149,12 @@ view: store_orders_fact {
   measure: liftetime_orders {
     type: count_distinct
     sql: ${quantity_ordered} ;;
+    drill_fields: [customer_dimension.customer_key]
 
   }
   measure: reorders {
     type: count_distinct
     sql: ${reorder_level} ;;
-    drill_fields: [customer.customer_key]
+    drill_fields: [customer_dimension.customer_key]
   }
 }
