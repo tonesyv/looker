@@ -126,7 +126,7 @@ view: product_dimension {
   measure: total_price_for_customer {
     type: sum
     sql: ${product_price} ;;
-    value_format: "usd"
+
 
   }
 }
