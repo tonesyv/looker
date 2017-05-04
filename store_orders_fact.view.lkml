@@ -157,4 +157,10 @@ view: store_orders_fact {
     sql: ${reorder_level} ;;
     drill_fields: [customer_dimension.customer_key]
   }
+
+  measure: quantity_pr_customer {
+    type: count_distinct
+    sql: ${quantity_ordered} ;;
+    drill_fields: [customer_dimension.customer_key]
+  }
 }
