@@ -102,6 +102,7 @@ view: store_orders_fact {
   dimension: reorder_level {
     type: number
     sql: ${TABLE}.reorder_level ;;
+    drill_fields: [custumer_dimension.customer_key]
   }
 
   dimension: shipper_name {
@@ -136,7 +137,7 @@ view: store_orders_fact {
 
   measure: count {
     type: count
-    drill_fields: [shipper_name]
+    drill_fields: [customer.customer_key]
   }
 
   measure:  total_shipping_cost {
@@ -149,5 +150,10 @@ view: store_orders_fact {
     type: count_distinct
     sql: ${quantity_ordered} ;;
 
+  }
+  measure: reorders {
+    type: count_distinct
+    sql: ${reorder_level} ;;
+    drill_fields: [customer.customer_key]
   }
 }

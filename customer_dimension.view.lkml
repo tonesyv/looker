@@ -20,6 +20,7 @@ view: customer_dimension {
   dimension: customer_city {
     type: string
     sql: ${TABLE}.customer_city ;;
+
     drill_fields: [customer_address]
   }
 
