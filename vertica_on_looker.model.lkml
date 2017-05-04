@@ -62,7 +62,7 @@ explore: store_sales_fact {
 
   join: inventory_fact {
     type: left_outer
-    sql_on: ${store_orders_fact.product_key} = ${inventory_fact.product_key}AND
+    sql_on: ${store_orders_fact.product_key} = ${inventory_fact.product_key} AND
       ${store_orders_fact.product_version} = ${inventory_fact.product_version};;
     relationship: many_to_one
 
@@ -77,10 +77,10 @@ explore: store_sales_fact {
 
   join: store_orders_fact  {
     type: left_outer
-    sql_on: ${store_sales_fact.product_key} = ${store_orders_fact.product_key}AND
-    sql_on: ${store_sales_fact.product_version} = ${store_orders_fact.product_version}AND
-    sql on: ${store_sales_fact.store_key} = ${store_orders_fact.store_key} AND
-    sql on: ${store_sales_fact.employee_key} = ${store_orders_fact.employee_key};;
+    sql_on: ${store_sales_fact.product_key} = ${store_orders_fact.product_key} AND
+     ${store_sales_fact.product_version} = ${store_orders_fact.product_version}AND
+     ${store_sales_fact.store_key} = ${store_orders_fact.store_key} AND
+     ${store_sales_fact.employee_key} = ${store_orders_fact.employee_key};;
     relationship: many_to_one
 
   }
