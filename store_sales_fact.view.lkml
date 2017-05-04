@@ -36,10 +36,7 @@ view: store_sales_fact {
     sql: ${TABLE}.product_key ;;
   }
 
-  dimension: newproduct_key {
-    type: number
-    sql: CONCAT(${TABLE}.product_key, ${TABLE}.product_version) ;;
-  }
+
   dimension: product_version {
     type: number
     sql: ${TABLE}.product_version ;;
@@ -89,30 +86,24 @@ view: store_sales_fact {
     type: sum
     sql: ${sales_dollar_amount};;
     value_format_name: usd
-    drill_fields: [store_key, product_key, product_version, total_sales_amount]
+    drill_fields: [store_key, product_key, product_version]
   }
 
   measure:  total_cost_amount {
     type: sum
     sql: ${cost_dollar_amount};;
     value_format_name: usd
-    drill_fields: [store_key, product_key, product_version, total_sales_amount]
+    drill_fields: [store_key, product_key, product_version]
   }
   measure:  total_profit {
     type: sum
     sql: ${gross_profit_dollar_amount};;
     value_format_name: usd
-    drill_fields: [store_key, product_key, product_version, total_sales_amount]
+    drill_fields: [store_key, product_key, product_version]
   }
 
 
- #what am I doing here?
-  measure:  sales_pr_item {
-    type: sum
-    sql: ${sales_quantity} * ${product_dimension.product_price};;
-    value_format_name: usd
-    drill_fields: [product_dimension.product_description, sales_quantity, total_sales_amount, product_dimension.product_price]
-  }
+
 
 
 }

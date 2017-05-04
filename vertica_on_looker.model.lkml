@@ -31,16 +31,20 @@ explore: store_sales_fact {
     sql_on: ${store_sales_fact.customer_key} = ${customer_dimension.customer_key} ;;
     relationship: many_to_one
   }
+
   join:employee_dimension {
     type: left_outer
     sql_on: ${store_sales_fact.employee_key} = ${employee_dimension.employee_key} ;;
     relationship: many_to_one
   }
+
   join:product_dimension {
     type: left_outer
-    sql_on: ${store_sales_fact.newproduct_key} = ${product_dimension.primary_key} ;;
+    sql_on: ${store_sales_fact.product_key} = ${product_dimension.product_key} AND
+      ${store_sales_fact.product_version} = ${product_dimension.product_version};;
     relationship: many_to_one
   }
+
 
   join: date_dimension  {
     type: left_outer
