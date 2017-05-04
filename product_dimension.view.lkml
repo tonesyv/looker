@@ -122,4 +122,11 @@ view: product_dimension {
     type: count
     drill_fields: []
   }
+
+  measure: total_price_for_customer {
+    type: sum
+    sql: ${product_price} ;;
+    value_format: "usd"
+
+  }
 }
