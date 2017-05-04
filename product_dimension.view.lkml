@@ -53,6 +53,7 @@ view: product_dimension {
 
   dimension: product_cost {
     type: number
+    value_format_name: usd
     sql: ${TABLE}.product_cost ;;
   }
 
@@ -73,6 +74,7 @@ view: product_dimension {
 
   dimension: product_price {
     type: number
+    value_format_name: usd
     sql: ${TABLE}.product_price ;;
   }
 
