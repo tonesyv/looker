@@ -38,6 +38,7 @@ view: customer_dimension {
   dimension: customer_name {
     type: string
     sql: ${TABLE}.customer_name ;;
+    drill_fields: [customer_name, customer_age, customer_address, customer_city, customer_gender, customer_since_year]
   }
 
   dimension: customer_region {
