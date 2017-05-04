@@ -79,11 +79,11 @@ explore: store_sales_fact {
     type: left_outer
     sql_on: ${store_sales_fact.product_key} = ${store_orders_fact.product_key} AND
      ${store_sales_fact.product_version} = ${store_orders_fact.product_version}
- /*do i need this?*/
+ /*do i need this?
    AND ${store_sales_fact.store_key} = ${store_orders_fact.store_key} AND
       ${store_sales_fact.employee_key} = ${store_orders_fact.employee_key}
-
-    ;;
+    */
+      ;;
     relationship: many_to_one
 
   }
