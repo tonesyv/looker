@@ -3,7 +3,7 @@ view: product_dimension {
 
   dimension: average_competitor_price {
     type: number
-    sql: ${TABLE}.average_competitor_price ;;
+    sql: ${TABLE}.average_competitor_price/100  ;;
   }
 
   dimension: category_description {
@@ -33,12 +33,12 @@ view: product_dimension {
 
   dimension: highest_competitor_price {
     type: number
-    sql: ${TABLE}.highest_competitor_price ;;
+    sql: ${TABLE}.highest_competitor_price/100  ;;
   }
 
   dimension: lowest_competitor_price {
     type: number
-    sql: ${TABLE}.lowest_competitor_price ;;
+    sql: ${TABLE}.lowest_competitor_price/100  ;;
   }
 
   dimension: package_size {
@@ -54,7 +54,7 @@ view: product_dimension {
   dimension: product_cost {
     type: number
     value_format_name: usd
-    sql: ${TABLE}.product_cost ;;
+    sql: ${TABLE}.product_cost/100  ;;
   }
 
   dimension: product_description {
@@ -75,7 +75,7 @@ view: product_dimension {
   dimension: product_price {
     type: number
     value_format_name: usd
-    sql: ${TABLE}.product_price ;;
+    sql: ${TABLE}.product_price/100  ;;
   }
 
   dimension: product_version {
@@ -125,6 +125,7 @@ view: product_dimension {
 
   measure: total_price_for_customer {
     type: sum
+    value_format_name: usd
     sql: ${product_price} ;;
 
 

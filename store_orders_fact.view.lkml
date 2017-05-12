@@ -112,7 +112,8 @@ view: store_orders_fact {
 
   dimension: shipping_cost {
     type: number
-    sql: ${TABLE}.shipping_cost ;;
+    value_format_name: usd
+    sql: ${TABLE}.shipping_cost/100  ;;
   }
 
   dimension: store_key {
@@ -122,12 +123,14 @@ view: store_orders_fact {
 
   dimension: total_order_cost {
     type: number
-    sql: ${TABLE}.total_order_cost ;;
+    value_format_name: usd
+    sql: ${TABLE}.total_order_cost/100  ;;
   }
 
   dimension: unit_price {
     type: number
-    sql: ${TABLE}.unit_price ;;
+    value_format_name: usd
+    sql: ${TABLE}.unit_price/100  ;;
   }
 
   dimension: vendor_key {
@@ -158,9 +161,5 @@ view: store_orders_fact {
     drill_fields: [customer_dimension.customer_key]
   }
 
-  measure: quantity_pr_customer {
-    type: count_distinct
-    sql: ${quantity_ordered} ;;
-    drill_fields: [customer_dimension.customer_key]
-  }
+
 }

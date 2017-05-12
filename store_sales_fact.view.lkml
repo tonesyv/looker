@@ -3,7 +3,8 @@ view: store_sales_fact {
 
   dimension: cost_dollar_amount {
     type: number
-    sql: ${TABLE}.cost_dollar_amount ;;
+    value_format_name: usd
+    sql: ${TABLE}.cost_dollar_amount/100  ;;
   }
 
   dimension: customer_key {
@@ -23,7 +24,8 @@ view: store_sales_fact {
 
   dimension: gross_profit_dollar_amount {
     type: number
-    sql: ${TABLE}.gross_profit_dollar_amount ;;
+    value_format_name: usd
+    sql: ${TABLE}.gross_profit_dollar_amount/100  ;;
   }
 
   dimension: pos_transaction_number {
@@ -49,7 +51,9 @@ view: store_sales_fact {
 
   dimension: sales_dollar_amount {
     type: number
-    sql: ${TABLE}.sales_dollar_amount ;;
+    value_format_name: usd
+    sql: ${TABLE}.sales_dollar_amount/100 ;;
+
   }
 
   dimension: sales_quantity {
